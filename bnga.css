@@ -1,0 +1,229 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.scene {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#tv-screen {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 40%;
+    background-color: #000;
+    border: 2px solid #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 1; 
+}
+
+
+.running-text {
+    color: #d2d2d4;
+    font-size: 15px;
+    font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+    animation: runText 40s linear infinite;
+    white-space: nowrap;
+    text-align: center;
+   
+}
+
+/* animasi untuk teks */
+@keyframes runText {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+#grass {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    z-index: 2; 
+}
+
+.grass-blade {
+    position: relative;
+    width: 200px;
+    height: 150px;
+    border-left: 2px solid #3cb371;
+    border-right: 2px solid #3cb371;
+    border-bottom: 0;
+    border-radius: 50% 50% 0 0;
+    background: transparent;
+    transform-origin: bottom center;
+    animation: sway 4s infinite ease-in-out;
+}
+
+.grass-blade::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0px;
+    width: 100px;
+    height: 100%;
+    background: linear-gradient(to top, #2e8b57, transparent);
+    border-radius: 50% 50% 0 0;
+}
+
+@keyframes sway {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(5deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+#flowers {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform-origin: bottom center;
+    z-index: 4; 
+}
+
+.flower {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform-origin: bottom center;
+    animation: swayFlower 2s infinite ease-in-out;
+}
+
+@keyframes swayFlower {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(-10deg);
+    }
+}
+
+.stem {
+    width: 3px;
+    height: 120px;
+    background-color: #32a852;
+    margin-left: -1px;
+    z-index: 3;
+}
+
+.petal {
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, #ff69b4, #ff1493);
+    border-radius: 50%;
+    position: absolute;
+    top: -15px;
+    left: -10px;
+}
+
+/* Gaya untuk manusia */
+#human {
+    position: absolute;
+    bottom: 1%;
+    left: 45%;
+    width: 50px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 4;
+    animation: bounce 4s infinite ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+#human .head {
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: relative;
+    top: 13px;
+    transform: rotate(-10deg);
+    animation: nod 3s infinite ease-in-out;
+}
+
+@keyframes nod {
+    0%, 100% {
+        transform: rotate(-10deg);
+    }
+    50% {
+        transform: rotate(10deg);
+    }
+}
+
+#human .body {
+    width: 20px;
+    height: 80px;
+    background-color: #fff;
+    margin-top: 10px;
+    transform: rotate(10deg);
+}
+
+#human .arm {
+    width: 50px;
+    height: 10px;
+    background-color: #fff;
+    position: absolute;
+    top: 60px;
+    left: -10px;
+    border-radius: 20px;
+    transform: rotate(-140deg);
+}
+
+#human .mic {
+    width: 8px;
+    height: 20px;
+    background-color: #333;
+    border-radius: 50%;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+}
+
+#human .leg {
+    width: 10px;
+    height: 40px;
+    background-color: #fff;
+    left: -10px;
+    position: relative;
+    border-radius: 20px;
+    transform: rotate(10deg);
+}
